@@ -42,3 +42,16 @@ SCENARIO("stack push", "[push]")
 	st.push(78);
 	REQUIRE(st.count() == 3);
 }
+SCENARIO("pop") 
+{
+	stack<int> s1();
+	s1.push(1);
+	s1.push(2);
+	s1.push(3);
+	int val = s1.pop();
+	REQUIRE(s1.count() == 2 && val == 3);
+	val = s1.pop();
+	REQUIRE(s1.count() == 1 && val == 2);
+	val = s1.pop();
+	REQUIRE(s1.count() == 0 && val == 1);
+}
