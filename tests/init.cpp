@@ -49,9 +49,12 @@ SCENARIO("pop", "[pop]")
 	st.push(2);
 	st.push(3);
 	int val = st.pop();
-	REQUIRE(st.count() == 2 && val == 3);
+	REQUIRE(st.count() == 2);
+	REQUIRE(val == 3);
 	val = st.pop();
-	REQUIRE(st.count() == 1 && val == 2);
+	REQUIRE(st.count() == 1);
+	REQUIRE(val == 2);
 	val = st.pop();
-	REQUIRE(st.count() == 0 && val == 1);
+	REQUIRE(st.count() == 0);
+	REQUIRE(val == 1);
 }
