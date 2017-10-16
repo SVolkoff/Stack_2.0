@@ -1,6 +1,8 @@
 #include <iostream>
 #include <stdexcept>
 #include <algorithm>
+#ifndef STACK_HPP
+#define STACK_HPP
 
 template <typename T> class stack
 {
@@ -132,3 +134,4 @@ void stack<T>::push(T const & value)
 	}
 	array_[count_++] = value;
 }
+#endif 
