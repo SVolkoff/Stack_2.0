@@ -1,5 +1,6 @@
 #include <iostream>
- #include <stdexcept>
+#include <stdexcept>
+#include <algorithm>
 
 template <typename T> class stack
 {
