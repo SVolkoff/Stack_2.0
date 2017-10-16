@@ -1,12 +1,12 @@
 #include <catch.hpp>
 #include <stack.hpp>
 
-SCENARIO("stack init", "[init]")
+SCENARIO("stack init")
 {
 	stack<int> st;
 	REQUIRE(st.count() == 0);
 }
-SCENARIO("stack init object", ) 
+SCENARIO("stack init object" ) 
 {
 	stack<int> st1;
 
@@ -18,7 +18,7 @@ SCENARIO("stack init object", )
 	REQUIRE(st1.count() == st2.count());
 }
 
-SCENARIO("stack op=", "[op=]")
+SCENARIO("stack op=")
 {
 	stack<int> st1;
 
@@ -30,7 +30,7 @@ SCENARIO("stack op=", "[op=]")
 	REQUIRE(st1.count() == st2.count() );
 }
 
-SCENARIO("stack push", "[push]")
+SCENARIO("stack push")
 {
 	stack<int> st;
 	REQUIRE(st.count() == 0);
@@ -41,7 +41,7 @@ SCENARIO("stack push", "[push]")
 	st.push(78);
 	REQUIRE(st.count() == 3);
 }
-SCENARIO("pop", "[pop]") 
+SCENARIO("pop") 
 {
 	stack<int> st;
 	st.push(1);
