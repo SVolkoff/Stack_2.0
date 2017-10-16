@@ -116,8 +116,9 @@ void stack<T>::push(T const & value)
 	else if (array_size_ == count_)
 	{
 		array_size_ = array_size_ * 2;
-		T *ptr;
-		swap(ptr, array_, count_, array_size_);
+		T *ptr=new T[array_size_]();
+		std::copy(array_, array_ + count_, ptr);
+		swap( array_, count_, array_size_);
 		delete[] array_;
 		array_ = ptr;
 	}
