@@ -6,8 +6,7 @@ SCENARIO("stack init", "[init]")
 	stack<int> st;
 	REQUIRE(st.count() == 0);
 }
-
-SCENARIO("stack init object", "[init object]") 
+SCENARIO("stack init object", ) 
 {
 	stack<int> st1;
 
