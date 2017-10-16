@@ -15,6 +15,7 @@ SCENARIO("stack init object", "[init object]")
 	st1.push(2);
 	st1.push(3);
 	stack<int> st2(st1);
+	REQUIRE(st1.count() ==3 ); 
 	REQUIRE(st1.count() == st2.count());
 }
 
@@ -26,7 +27,8 @@ SCENARIO("stack op=", "[op=]")
 	st1.push(2);
 	st1.push(3);
 	stack<int> st2 = st1;
-	REQUIRE(st1.count() == st2.count() == 3);
+	REQUIRE(st1.count() ==3 ); 
+	REQUIRE(st1.count() == st2.count() );
 }
 
 SCENARIO("stack push", "[push]")
