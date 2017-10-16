@@ -11,7 +11,7 @@ public:
 	~stack();
 	stack(const stack&);
 	stack<T>& operator=(const stack<T>& other);
-	void swap(T*& this_array, const T* other_array, size_t other_count, size_t other_array_size);
+	void swap(stack<T>&);
 	size_t count() const;
 	void push(T const &);
 	T pop();
@@ -45,19 +45,15 @@ stack<T>::stack(const stack<T>& other)
 {
 	array_size_ = other.array_size_;
 	count_ = other.count_;
-	swap(array_, other.array_, count_, array_size_);
+	swap(other);
 }
 
-template<typename T>
-void stack<T>::swap(T*& this_array, const T* other_array, size_t other_count, size_t other_array_size) {
-	if (other_array_size == 0 )
-		this_array = nullptr;
-	else 
-	{
-		this_array = new T[other_array_size];
-		std::copy(other_array, other_array + other_count, this_array);
-	}
-	
+template <typename T>
+void stack<T>::swap(stack<T>& other)
+{
+	std::swap(other.array_size_, array_size_);
+	std::swap(count_, other.count_);
+	std::swap(other.array_, array_);
 }
 
 template<typename T>
@@ -70,7 +66,7 @@ stack<T>& stack<T>::operator=(const stack<T>& other) {
 		}
 		array_size_ = other.array_size_;
 		count_ = other.count_;
-		swap(array_, other.array_, count_, array_size_);
+		swap(other);
 	}
 	return *this;
 }
@@ -98,19 +94,12 @@ size_t stack<T>::count() const
 }
 
 template<typename T>
-T stack<T>::pop() {
+T stack<T>::pop() 
+{
 	if (array_size_ != 0) 
 	{
-		T val = array_[--count_];
-		if (array_size_ == count_ * 2) 
-		{
-			T *ptr;
-			array_size_ /= 2;
-			swap(ptr, array_, count_, array_size_);
-			delete[] array_;
-			array_ = ptr;
-		}
-		return val;
+		count_--;
+		return array_[count_];
 	}
 	else 
 		throw std::logic_error("Stack is empty");
