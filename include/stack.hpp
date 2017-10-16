@@ -45,7 +45,7 @@ stack<T>::stack(const stack<T>& other)
 {
 	array_size_ = other.array_size_;
 	count_ = other.count_;
-	swap(other);
+	std::copy(other.array_, other.array_ + other.count_, array_);
 }
 
 template <typename T>
@@ -66,7 +66,7 @@ stack<T>& stack<T>::operator=(const stack<T>& other) {
 		}
 		array_size_ = other.array_size_;
 		count_ = other.count_;
-		swap(other);
+		std::copy(other.array_, other.array_ + other.count_, array_);
 	}
 	return *this;
 }
